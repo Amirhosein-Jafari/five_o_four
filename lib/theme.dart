@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Colors inspired by the design photo
   static const Color scaffoldBackground = Color(0xFFF6F9F9); // BlueWhite
   static const Color cardBackground = Color(0xFFFFFFFF); // White
   static const Color textPrimary = Color(0xFF000000); // Black
   static const Color textSecondary = Color(0xFF666666); // Grey
   static const Color blueAccent = Color(0xFF4A90E2); // Blue for title, tabs
   static const Color orangeAccent = Color(0xFFF5A623); // Orange for phonetic
-  static const Color redAccent = Color(0xFFFF4D4D); // Red for "Review Later"
-  static const Color greenAccent = Color(0xFF4CAF50); // Green for "Learnt"
+  static const Color redAccent = Color(0xFFFF4D4D);
+  static const Color greenAccent = Color(0xFF4CAF50);
   static const Color white = Color(0xFFFFFFFF); // White for button text/icons
+
+  // static const Color purpleAccent = Color(0xFF7986CB); // Purple
+  // static const Color lightPurpleAccent = Color(0xFFAEB8E0); // Light purple
+  // static const Color darkPurpleAccent = Color(0xFF495A8A); // Dark purple
+
+  // static const Color greenAccent = Color(0xFF4CAF8C); // Green
+  // static const Color lightGreenAccent = Color(0xFF80E8B2); // Light green
+  // static const Color darkGreenAccent = Color(0xFF357A5E); // Dark green
+
+  // static const Color pinkAccent = Color(0xFFFF8A80); // Salmon/pink
+  // static const Color lightPinkAccent = Color(0xFFFFB3A8); // Light salmon/pink
+  // static const Color darkPinkAccent = Color(0xFFC75B53); // Dark salmon/pink
+
+  // static const Color yellowAccent = Color(0xFFFFCF40); // Yellow
+  // static const Color lightYellowAccent = Color(0xFFFFE680); // Light yellow
+  // static const Color darkYellowAccent = Color(0xFFC7A200); // Dark yellow
 
   // Text Theme
   static TextTheme textTheme = TextTheme(
@@ -18,63 +33,63 @@ class AppTheme {
       fontSize: 28,
       fontWeight: FontWeight.bold,
       color: textPrimary,
-      letterSpacing: 1.1,
+      // letterSpacing: 1.1,
       height: 1.4,
     ),
     displayMedium: TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.bold,
       color: textPrimary,
-      letterSpacing: 1.0,
+      // letterSpacing: 1.0,
       height: 1.3,
     ),
     headlineMedium: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.w600,
       color: textPrimary,
-      letterSpacing: 0.8,
+      // letterSpacing: 0.8,
       height: 1.3,
     ),
     titleLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.bold,
       color: blueAccent,
-      letterSpacing: 0.7,
+      // letterSpacing: 0.7,
       height: 1.2,
     ),
     bodyLarge: TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.normal,
       color: textPrimary,
-      letterSpacing: 0.5,
+      // letterSpacing: 0.5,
       height: 1.5,
     ),
     bodyMedium: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.normal,
       color: textPrimary,
-      letterSpacing: 0.4,
+      // letterSpacing: 0.4,
       height: 1.4,
     ),
     bodySmall: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.normal,
       color: textSecondary,
-      letterSpacing: 0.3,
+      // letterSpacing: 0.3,
       height: 1.3,
     ),
     labelMedium: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w500,
       color: blueAccent,
-      letterSpacing: 0.4,
+      // letterSpacing: 0.4,
       height: 1.3,
     ),
   );
 
   final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Nunito',
+    // fontFamily: 'Nunito',
     fontFamilyFallback: ['Nunito', 'Vazir'],
     scaffoldBackgroundColor: scaffoldBackground,
     primaryColor: blueAccent,
@@ -121,19 +136,19 @@ class AppTheme {
         ),
       ),
     ),
-    chipTheme: ChipThemeData(
-      backgroundColor: cardBackground,
-      selectedColor: blueAccent,
-      disabledColor: Colors.grey.shade200,
-      labelStyle: textTheme.labelMedium?.copyWith(color: blueAccent),
-      secondaryLabelStyle: textTheme.labelMedium?.copyWith(color: white),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: blueAccent),
+    tabBarTheme: const TabBarTheme(
+      overlayColor: WidgetStatePropertyAll(Colors.transparent),
+      dividerColor: Colors.transparent,
+      labelColor: blueAccent,
+      labelStyle: TextStyle(
+        fontSize: 16,
+        // fontWeight: FontWeight.bold,
       ),
-      elevation: 1,
-      pressElevation: 2,
+      unselectedLabelColor: textSecondary,
+      unselectedLabelStyle: TextStyle(
+        fontSize: 16,
+        // fontWeight: FontWeight.bold,
+      ),
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: Colors.transparent,
@@ -197,20 +212,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
-    ),
-    chipTheme: ChipThemeData(
-      backgroundColor: const Color(0xFF1E1E1E),
-      selectedColor: blueAccent,
-      disabledColor: Colors.grey.shade800,
-      labelStyle: textTheme.labelMedium?.copyWith(color: blueAccent),
-      secondaryLabelStyle: textTheme.labelMedium?.copyWith(color: white),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: blueAccent),
-      ),
-      elevation: 1,
-      pressElevation: 2,
     ),
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: Colors.transparent,

@@ -11,9 +11,10 @@ class Word {
   final String exampleTranslation2;
   final String example3;
   final String exampleTranslation3;
+  final String story;
+  final String storyTranslation;
   final String? photoUrl;
   final String? pronunciationUrl;
-  final String? storyUrl;
 
   Word({
     required this.word,
@@ -28,9 +29,10 @@ class Word {
     required this.exampleTranslation2,
     required this.example3,
     required this.exampleTranslation3,
+    required this.story,
+    required this.storyTranslation,
     this.photoUrl,
     this.pronunciationUrl,
-    this.storyUrl,
   });
 
   // Manual JSON serialization
@@ -48,9 +50,10 @@ class Word {
       'exampleTranslation2': exampleTranslation2,
       'example3': example3,
       'exampleTranslation3': exampleTranslation3,
+      'story': story,
+      'storyTranslation': storyTranslation,
       'photoUrl': photoUrl,
       'pronunciationUrl': pronunciationUrl,
-      'storyUrl': storyUrl,
     };
   }
 
@@ -69,9 +72,10 @@ class Word {
       exampleTranslation2: json['exampleTranslation2'] as String,
       example3: json['example3'] as String,
       exampleTranslation3: json['exampleTranslation3'] as String,
+      story: json['story'] as String,
+      storyTranslation: json['storyTranslation'] as String,
       photoUrl: json['photoUrl'] as String?,
       pronunciationUrl: json['pronunciationUrl'] as String?,
-      storyUrl: json['storyUrl'] as String?,
     );
   }
 }

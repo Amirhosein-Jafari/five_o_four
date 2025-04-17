@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:five_o_four/constants/constants.dart';
 import 'package:five_o_four/models/word_model.dart';
 import 'package:flutter/material.dart';
@@ -37,27 +39,24 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: pagePadding(context),
+          padding: pagePadding(context).copyWith(top: 0),
           child: Column(
+            spacing: 16,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Photo Sectoin
-              Center(
-                child: Card(
-                  child: Container(
-                    height: 220,
-                    padding: const EdgeInsets.all(16),
-                    child: const Center(
-                      child: Icon(
-                        Icons.image,
-                        size: 48,
-                        color: Colors.grey,
-                      ),
+              Card(
+                child: SizedBox(
+                  height: 220,
+                  child: const Center(
+                    child: Icon(
+                      Icons.image,
+                      size: 48,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
               // Word Section
               Card(
                 child: Padding(
@@ -145,9 +144,35 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-
-              // Story Voice Player
+              // Definitoin card
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Definition',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        widget.word.definition,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        widget.word.definitionTranslation,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        textDirection: TextDirection.rtl,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // Story Voice Player (This is shit dont give a fuck about it yet)
               Card(
                 child: Container(
                   decoration: BoxDecoration(
@@ -263,7 +288,6 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
 
               // Tabs (Definitions, Examples)
               DefaultTabController(
@@ -271,11 +295,9 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                 child: Column(
                   children: [
                     TabBar(
-                      dividerColor: Colors.transparent,
-                      splashBorderRadius: BorderRadius.circular(20),
                       tabs: const [
-                        Tab(text: 'Definitions'),
                         Tab(text: 'Examples'),
+                        Tab(text: 'Story'),
                       ],
                     ),
                     const SizedBox(height: 16),
@@ -284,41 +306,6 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                       child: TabBarView(
                         children: [
                           // Definitions Tab
-                          Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Definition',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleLarge
-                                        ?.copyWith(
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    widget.word
-                                        .definition, // "desert; leave without planning to come back; quit"
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    widget.word
-                                        .definitionTranslation, // "ترک کردن، ترک کردن بدون قصد بازگشت، دست کشیدن از"
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                    textDirection: TextDirection.rtl,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          // Examples Tab
                           Card(
                             child: Padding(
                               padding: const EdgeInsets.all(16),
@@ -424,12 +411,48 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                               ),
                             ),
                           ),
+                          // Examples Tab
+                          Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Story',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    widget.word.story,
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    widget.word.storyTranslation,
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 64,
+              )
             ],
           ),
         ),

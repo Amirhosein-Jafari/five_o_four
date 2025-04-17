@@ -22,10 +22,11 @@ final List<Lesson> lessonData = [
           exampleTranslation2: 'مثال ۲ برای کلمه ${index + 2}',
           example3: 'Example 3 for word ${index + 2}.',
           exampleTranslation3: 'مثال ۳ برای کلمه ${index + 2}',
+          story: 'Story for word ${index + 2}',
+          storyTranslation: 'داستان برای کلمه ${index + 2}',
           photoUrl: 'https://via.placeholder.com/150',
           pronunciationUrl:
               'https://example.com/word${index + 2}_pronunciation.mp3',
-          storyUrl: 'https://example.com/story.mp3',
         );
       }),
     ],
@@ -53,10 +54,12 @@ final List<Lesson> lessonData = [
           example3: 'Example 3 for word ${(index + 1) * 12 + wordIndex + 1}.',
           exampleTranslation3:
               'مثال ۳ برای کلمه ${(index + 1) * 12 + wordIndex + 1}',
+          story: 'Story for word ${(index + 1) * 12 + wordIndex + 1}',
+          storyTranslation:
+              'داستان برای کلمه ${(index + 1) * 12 + wordIndex + 1}',
           photoUrl: 'https://via.placeholder.com/150',
           pronunciationUrl:
               'https://example.com/word${(index + 1) * 12 + wordIndex + 1}_pronunciation.mp3',
-          storyUrl: 'https://example.com/story.mp3',
         );
       }),
     );
