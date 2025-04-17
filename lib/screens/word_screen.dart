@@ -115,27 +115,19 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Text(
+                                      widget.word.wordForm, // "verb"
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
                                       widget.word
                                           .translation, // "ترک کردن، رها کردن"
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyMedium
-                                          ?.copyWith(
-                                        fontFamilyFallback: ['Vazir'],
-                                      ),
-                                      textDirection: TextDirection.rtl,
-                                    ),
-                                    Text(
-                                      widget
-                                          .word.persianPhonetic, // "/اِبَندِن/"
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium
-                                          ?.copyWith(
-                                            color: const Color(0xFFF5A623),
-                                            fontFamilyFallback: ['Vazir'],
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          .bodyMedium,
                                       textDirection: TextDirection.rtl,
                                     ),
                                   ],
@@ -145,7 +137,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 24),
                       Text(
                         widget.word.definition,
                         style: Theme.of(context).textTheme.bodyLarge,
@@ -174,8 +166,8 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color.fromARGB(255, 209, 243, 200), // Vibrant pink
-                        Color.fromARGB(255, 190, 228, 250), // Vibrant blue
+                        Color.fromARGB(255, 209, 243, 200),
+                        Color.fromARGB(255, 190, 228, 250),
                       ],
                     ),
                   ),
@@ -203,7 +195,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                           ),
                           const Icon(
                             Icons.star,
-                            color: AppTheme.pastilGreenAccent, // Vibrant pink
+                            color: AppTheme.pastilGreenAccent,
                             size: 20,
                           ),
                         ],
@@ -468,7 +460,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
             IconButton.filled(
               icon: Icon(
                 Icons.arrow_left,
-                size: 48,
+                size: 36,
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
               onPressed: () {},
@@ -476,7 +468,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
             IconButton.filled(
               icon: Icon(
                 Icons.arrow_right,
-                size: 48,
+                size: 36,
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
               onPressed: () {},

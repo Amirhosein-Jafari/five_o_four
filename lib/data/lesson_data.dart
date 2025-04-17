@@ -13,7 +13,7 @@ final List<Lesson> lessonData = [
           word: 'Word ${index + 2}',
           phonetic: '/ˈwɜːrd${index + 2}/',
           translation: 'کلمه ${index + 2}',
-          persianPhonetic: '/وُرد${index + 2}/',
+          wordForm: '/وُرد${index + 2}/',
           definition: 'Definition of word ${index + 2}',
           definitionTranslation: 'تعریف کلمه ${index + 2}',
           example1: 'Example 1 for word ${index + 2}.',
@@ -41,7 +41,7 @@ final List<Lesson> lessonData = [
           word: 'Word ${(index + 1) * 12 + wordIndex + 1}',
           phonetic: '/ˈwɜːrd${(index + 1) * 12 + wordIndex + 1}/',
           translation: 'کلمه ${(index + 1) * 12 + wordIndex + 1}',
-          persianPhonetic: '/وُرد${(index + 1) * 12 + wordIndex + 1}/',
+          wordForm: '/وُرد${(index + 1) * 12 + wordIndex + 1}/',
           definition: 'Definition of word ${(index + 1) * 12 + wordIndex + 1}',
           definitionTranslation:
               'تعریف کلمه ${(index + 1) * 12 + wordIndex + 1}',

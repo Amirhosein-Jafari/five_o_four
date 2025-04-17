@@ -90,7 +90,7 @@ class AppTheme {
   final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     // fontFamily: 'Nunito',
-    fontFamilyFallback: ['Nunito', 'Vazir'],
+    fontFamilyFallback: ['Nunito', 'Vazirmatn'],
     scaffoldBackgroundColor: scaffoldBackground,
     primaryColor: blueAccent,
     colorScheme: const ColorScheme.light(

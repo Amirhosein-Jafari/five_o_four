@@ -2,7 +2,7 @@ class Word {
   final String word;
   final String phonetic;
   final String translation;
-  final String persianPhonetic;
+  final String wordForm;
   final String definition;
   final String definitionTranslation;
   final String example1;
@@ -20,7 +20,7 @@ class Word {
     required this.word,
     required this.phonetic,
     required this.translation,
-    required this.persianPhonetic,
+    required this.wordForm,
     required this.definition,
     required this.definitionTranslation,
     required this.example1,
@@ -41,7 +41,7 @@ class Word {
       'word': word,
       'phonetic': phonetic,
       'translation': translation,
-      'persianPhonetic': persianPhonetic,
+      'wordForm': wordForm,
       'definition': definition,
       'definitionTranslation': definitionTranslation,
       'example1': example1,
@@ -63,7 +63,7 @@ class Word {
       word: json['word'] as String,
       phonetic: json['phonetic'] as String,
       translation: json['translation'] as String,
-      persianPhonetic: json['persianPhonetic'] as String,
+      wordForm: json['wordForm'] as String,
       definition: json['definition'] as String,
       definitionTranslation: json['definitionTranslation'] as String,
       example1: json['example1'] as String,

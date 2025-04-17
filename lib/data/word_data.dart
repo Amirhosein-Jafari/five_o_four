@@ -5,7 +5,7 @@ final List<Word> wordData = [
     word: 'abandon',
     phonetic: '/əˈbændən/',
     translation: 'ترک کردن، رها کردن',
-    persianPhonetic: '/اِبَندِن/',
+    wordForm: 'Verb',
     definition: 'desert; leave without planning to come back; quit',
     definitionTranslation: 'ترک کردن، ترک کردن بدون قصد بازگشت، دست کشیدن از',
     example1: 'When Roy abandoned his family, the police went looking for him.',

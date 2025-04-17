@@ -11,7 +11,6 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.1.0
   animations: ^2.0.8
-  audioplayers: ^5.0.0
   json_annotation: ^4.9.0
 
 dev_dependencies:
@@ -37,5 +36,19 @@ flutter:
         - asset: assets/fonts/Nunito-Light.ttf
         - asset: assets/fonts/Nunito-Medium.ttf
         - asset: assets/fonts/Nunito-SemiBold.ttf
-
-
+          weight: 600
+          
+    - family: Vazirmatn
+      fonts:
+        - asset: assets/fonts/Vazirmatn-ExtraLight.ttf
+        - asset: assets/fonts/Vazirmatn-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Vazirmatn-Black.ttf
+        - asset: assets/fonts/Vazirmatn-Regular.ttf
+        - asset: assets/fonts/Vazirmatn-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Vazirmatn-thin.ttf
+        - asset: assets/fonts/Vazirmatn-Light.ttf
+        - asset: assets/fonts/Vazirmatn-Medium.ttf
+        - asset: assets/fonts/Vazirmatn-SemiBold.ttf
+          weight: 600
