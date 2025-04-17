@@ -11,19 +11,19 @@ class AppTheme {
   static const Color greenAccent = Color(0xFF4CAF50);
   static const Color white = Color(0xFFFFFFFF); // White for button text/icons
 
-  // static const Color purpleAccent = Color(0xFF7986CB); // Purple
+  static const Color purpleAccent = Color(0xFF7986CB); // Purple
   // static const Color lightPurpleAccent = Color(0xFFAEB8E0); // Light purple
   // static const Color darkPurpleAccent = Color(0xFF495A8A); // Dark purple
 
-  // static const Color greenAccent = Color(0xFF4CAF8C); // Green
+  static const Color pastilGreenAccent = Color(0xFF4CAF8C); // Green
   // static const Color lightGreenAccent = Color(0xFF80E8B2); // Light green
   // static const Color darkGreenAccent = Color(0xFF357A5E); // Dark green
 
-  // static const Color pinkAccent = Color(0xFFFF8A80); // Salmon/pink
+  static const Color pinkAccent = Color(0xFFFF8A80); // Salmon/pink
   // static const Color lightPinkAccent = Color(0xFFFFB3A8); // Light salmon/pink
   // static const Color darkPinkAccent = Color(0xFFC75B53); // Dark salmon/pink
 
-  // static const Color yellowAccent = Color(0xFFFFCF40); // Yellow
+  static const Color yellowAccent = Color(0xFFFFCF40); // Yellow
   // static const Color lightYellowAccent = Color(0xFFFFE680); // Light yellow
   // static const Color darkYellowAccent = Color(0xFFC7A200); // Dark yellow
 
@@ -142,7 +142,7 @@ class AppTheme {
       labelColor: blueAccent,
       labelStyle: TextStyle(
         fontSize: 16,
-        // fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.bold,
       ),
       unselectedLabelColor: textSecondary,
       unselectedLabelStyle: TextStyle(
@@ -211,6 +211,15 @@ class AppTheme {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
+      ),
+    ),
+    tabBarTheme: const TabBarTheme(
+      overlayColor: WidgetStatePropertyAll(Colors.transparent),
+      dividerColor: Colors.transparent,
+      labelColor: blueAccent,
+      labelStyle: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
       ),
     ),
     bottomSheetTheme: BottomSheetThemeData(

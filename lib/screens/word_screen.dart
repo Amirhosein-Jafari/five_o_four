@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:five_o_four/constants/constants.dart';
 import 'package:five_o_four/models/word_model.dart';
+import 'package:five_o_four/theme.dart';
 import 'package:flutter/material.dart';
 
 class WordDetailsScreen extends StatefulWidget {
@@ -61,103 +60,92 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
               Card(
                 child: Padding(
                   padding: EdgeInsets.all(16),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Pronunciation Button
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Theme.of(context).primaryColor, // #4A90E2
-                        ),
-                        child: IconButton(
-                          icon: const Icon(Icons.volume_up),
-                          color: Colors.white,
-                          onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                    'Playing pronunciation for ${widget.word.word}'),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.word.word, // "abandon"
-                                  style:
-                                      Theme.of(context).textTheme.displayMedium,
-                                ),
-                                Text(
-                                  widget.word.phonetic, // "/əˈbændən/"
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                        color:
-                                            const Color(0xFFF5A623), // Orange
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  widget
-                                      .word.translation, // "ترک کردن، رها کردن"
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                    fontFamilyFallback: ['Vazir'],
-                                  ),
-                                  textDirection: TextDirection.rtl,
-                                ),
-                                Text(
-                                  widget.word.persianPhonetic, // "/اِبَندِن/"
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                        color: const Color(0xFFF5A623),
-                                        fontFamilyFallback: ['Vazir'],
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                  textDirection: TextDirection.rtl,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              // Definitoin card
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Definition',
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              color: Theme.of(context).primaryColor,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          // Pronunciation Button
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Theme.of(context).primaryColor, // #4A90E2
                             ),
+                            child: IconButton(
+                              icon: const Icon(Icons.volume_up),
+                              color: Colors.white,
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        'Playing pronunciation for ${widget.word.word}'),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      widget.word.word, // "abandon"
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayMedium,
+                                    ),
+                                    Text(
+                                      widget.word.phonetic, // "/əˈbændən/"
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                            color: const Color(
+                                                0xFFF5A623), // Orange
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      widget.word
+                                          .translation, // "ترک کردن، رها کردن"
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                        fontFamilyFallback: ['Vazir'],
+                                      ),
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    Text(
+                                      widget
+                                          .word.persianPhonetic, // "/اِبَندِن/"
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                            color: const Color(0xFFF5A623),
+                                            fontFamilyFallback: ['Vazir'],
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 16),
                       Text(
                         widget.word.definition,
                         style: Theme.of(context).textTheme.bodyLarge,
@@ -172,18 +160,22 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                   ),
                 ),
               ),
+
               // Story Voice Player (This is shit dont give a fuck about it yet)
               Card(
                 child: Container(
                   decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppTheme.pastilGreenAccent,
+                    ),
                     borderRadius: BorderRadius.circular(20),
                     // put a bold color gradient here
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color.fromARGB(255, 243, 200, 214), // Vibrant pink
-                        Color.fromARGB(255, 190, 206, 250), // Vibrant blue
+                        Color.fromARGB(255, 209, 243, 200), // Vibrant pink
+                        Color.fromARGB(255, 190, 228, 250), // Vibrant blue
                       ],
                     ),
                   ),
@@ -197,7 +189,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                         children: [
                           const Icon(
                             Icons.star,
-                            color: Color(0xFFFF4081), // Vibrant pink
+                            color: AppTheme.pastilGreenAccent,
                             size: 20,
                           ),
                           Text(
@@ -206,12 +198,12 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                 .textTheme
                                 .titleLarge
                                 ?.copyWith(
-                                  color: const Color(0xFFFF4081),
+                                  color: AppTheme.pastilGreenAccent,
                                 ),
                           ),
                           const Icon(
                             Icons.star,
-                            color: Color(0xFFFF4081), // Vibrant pink
+                            color: AppTheme.pastilGreenAccent, // Vibrant pink
                             size: 20,
                           ),
                         ],
@@ -222,7 +214,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                           Container(
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Color(0xFFFF4081),
+                              color: AppTheme.pastilGreenAccent,
                             ),
                             child: IconButton(
                               icon: Icon(
@@ -268,14 +260,14 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                             child: Container(
                               height: 4,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFFF4081).withOpacity(0.3),
+                                color: AppTheme.pastilGreenAccent,
                                 borderRadius: BorderRadius.circular(2),
                               ),
                               child: FractionallySizedBox(
                                 widthFactor: _storyProgress,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFFF4081),
+                                    color: AppTheme.pastilGreenAccent,
                                     borderRadius: BorderRadius.circular(2),
                                   ),
                                 ),
@@ -302,10 +294,10 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                     ),
                     const SizedBox(height: 16),
                     SizedBox(
-                      height: 300,
+                      height: 650,
                       child: TabBarView(
                         children: [
-                          // Definitions Tab
+                          // Example Tab
                           Card(
                             child: Padding(
                               padding: const EdgeInsets.all(16),
@@ -313,24 +305,22 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const SizedBox(width: 8),
                                     Text(
                                       'Examples',
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleLarge
                                           ?.copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor,
+                                            color: AppTheme.purpleAccent,
                                           ),
                                     ),
-                                    const SizedBox(height: 12),
+                                    const SizedBox(height: 24),
                                     Padding(
                                       padding:
                                           const EdgeInsets.only(bottom: 12),
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        // crossAxisAlignment:
+                                        //     CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             widget.word
@@ -339,7 +329,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                                 .textTheme
                                                 .bodyLarge,
                                           ),
-                                          const SizedBox(height: 4),
+                                          const SizedBox(height: 12),
                                           Text(
                                             widget.word
                                                 .exampleTranslation1, // "وقتی ” روی ” خانواده اش را ترک کرد پلیس به جستجویش پرداخت."
@@ -351,60 +341,57 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                         ],
                                       ),
                                     ),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 12),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            widget.word
-                                                .example2, // "b. The soldier could not abandon his friends who were hurt in battle."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            widget.word
-                                                .exampleTranslation2, // "سرباز نتوانست دوستانش را که در جنگ آسیب دیده بودند ترک کند."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                            textDirection: TextDirection.rtl,
-                                          ),
-                                        ],
-                                      ),
+                                    Divider(
+                                      height: 32,
+                                      color: AppTheme.purpleAccent,
                                     ),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 12),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            widget.word
-                                                .example3, // "c. Because Rose was poor, she had to abandon her idea of going to college."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            widget.word
-                                                .exampleTranslation3, // "چون ” رز ” فقیر بود از فکر رفتن به دانشگاه دست کشید."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                            textDirection: TextDirection.rtl,
-                                          ),
-                                          SizedBox(
-                                            height: 16,
-                                          )
-                                        ],
-                                      ),
+                                    Column(
+                                      // crossAxisAlignment:
+                                      //     CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          widget.word
+                                              .example2, // "b. The soldier could not abandon his friends who were hurt in battle."
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge,
+                                        ),
+                                        const SizedBox(height: 12),
+                                        Text(
+                                          widget.word
+                                              .exampleTranslation2, // "سرباز نتوانست دوستانش را که در جنگ آسیب دیده بودند ترک کند."
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                          textDirection: TextDirection.rtl,
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      height: 32,
+                                      color: AppTheme.purpleAccent,
+                                    ),
+                                    Column(
+                                      // crossAxisAlignment:
+                                      //     CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          widget.word
+                                              .example3, // "c. Because Rose was poor, she had to abandon her idea of going to college."
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge,
+                                        ),
+                                        const SizedBox(height: 12),
+                                        Text(
+                                          widget.word
+                                              .exampleTranslation3, // "چون ” رز ” فقیر بود از فکر رفتن به دانشگاه دست کشید."
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                          textDirection: TextDirection.rtl,
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -424,16 +411,18 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                         .textTheme
                                         .titleLarge
                                         ?.copyWith(
-                                          color: Theme.of(context).primaryColor,
+                                          color: AppTheme.pinkAccent,
                                         ),
                                   ),
-                                  const SizedBox(height: 8),
+                                  SizedBox(
+                                    height: 24,
+                                  ),
                                   Text(
                                     widget.word.story,
                                     style:
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
-                                  const SizedBox(height: 8),
+                                  const SizedBox(height: 12),
                                   Text(
                                     widget.word.storyTranslation,
                                     style:
@@ -452,22 +441,47 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
               ),
               SizedBox(
                 height: 64,
-              )
+              ),
             ],
           ),
         ),
       ),
       // Bottom sheet for floating button
+      // bottomSheet: Container(
+      //   padding: pagePadding(context),
+      //   width: double.maxFinite,
+      //   child: ElevatedButton(
+      //     onPressed: () {},
+      //     style: ButtonStyle(
+      //       backgroundColor:
+      //           WidgetStateProperty.all<Color>(Theme.of(context).primaryColor),
+      //     ),
+      //     child: Text("Next"),
+      //   ),
+      // ),
       bottomSheet: Container(
-        padding: pagePadding(context),
+        padding: const EdgeInsets.all(16),
         width: double.maxFinite,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ButtonStyle(
-            backgroundColor:
-                WidgetStateProperty.all<Color>(Theme.of(context).primaryColor),
-          ),
-          child: Text("Next"),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton.filled(
+              icon: Icon(
+                Icons.arrow_left,
+                size: 48,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+              onPressed: () {},
+            ),
+            IconButton.filled(
+              icon: Icon(
+                Icons.arrow_right,
+                size: 48,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+              onPressed: () {},
+            ),
+          ],
         ),
       ),
     );

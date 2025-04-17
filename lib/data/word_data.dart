@@ -8,16 +8,15 @@ final List<Word> wordData = [
     persianPhonetic: '/اِبَندِن/',
     definition: 'desert; leave without planning to come back; quit',
     definitionTranslation: 'ترک کردن، ترک کردن بدون قصد بازگشت، دست کشیدن از',
-    example1:
-        'a. When Roy abandoned his family, the police went looking for him.',
+    example1: 'When Roy abandoned his family, the police went looking for him.',
     exampleTranslation1:
         'وقتی ” روی ” خانواده اش را ترک کرد پلیس به جستجویش پرداخت.',
     example2:
-        'b. The soldier could not abandon his friends who were hurt in battle.',
+        'The soldier could not abandon his friends who were hurt in battle.',
     exampleTranslation2:
         'سرباز نتوانست دوستانش را که در جنگ آسیب دیده بودند ترک کند.',
     example3:
-        'c. Because Rose was poor, she had to abandon her idea of going to college.',
+        'Because Rose was poor, she had to abandon her idea of going to college.',
     exampleTranslation3: 'چون ” رز ” فقیر بود از فکر رفتن به دانشگاه دست کشید.',
     story:
         'One day, a young man named Jack decided to abandon his small village and go to the city. He was tired of the same old routine and wanted to find a better life. After a few days, he arrived at the city and was amazed by the towering buildings and the crowd of people. He found a job as a waiter in a restaurant and started working hard. He was happy with his new life but sometimes missed his family and friends back in the village.',
