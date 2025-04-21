@@ -130,6 +130,7 @@ class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: white,
+        backgroundColor: blueAccent,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -149,9 +150,6 @@ class AppTheme {
         fontSize: 16,
         // fontWeight: FontWeight.bold,
       ),
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-      backgroundColor: Colors.transparent,
     ),
   );
 
@@ -221,9 +219,6 @@ class AppTheme {
         fontSize: 16,
         fontWeight: FontWeight.bold,
       ),
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-      backgroundColor: Colors.transparent,
     ),
   );
 }

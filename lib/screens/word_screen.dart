@@ -438,40 +438,60 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
           ),
         ),
       ),
-      // Bottom sheet for floating button
-      // bottomSheet: Container(
-      //   padding: pagePadding(context),
-      //   width: double.maxFinite,
-      //   child: ElevatedButton(
-      //     onPressed: () {},
-      //     style: ButtonStyle(
-      //       backgroundColor:
-      //           WidgetStateProperty.all<Color>(Theme.of(context).primaryColor),
-      //     ),
-      //     child: Text("Next"),
-      //   ),
-      // ),
       bottomSheet: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         width: double.maxFinite,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          spacing: 32,
           children: [
-            IconButton.filled(
-              icon: Icon(
-                Icons.arrow_left,
-                size: 36,
-                color: Theme.of(context).colorScheme.onPrimary,
+            // IconButton.filled(
+            //   icon: Icon(
+            //     Icons.arrow_left,
+            //     size: 36,
+            //     color: Theme.of(context).colorScheme.onPrimary,
+            //   ),
+            //   onPressed: () {},
+            // ),
+            // IconButton.filled(
+            //   icon: Icon(
+            //     Icons.arrow_right,
+            //     size: 36,
+            //     color: Theme.of(context).colorScheme.onPrimary,
+            //   ),
+            //   onPressed: () {},
+            // ),
+            Expanded(
+              child: ElevatedButton(
+                iconAlignment: IconAlignment.end,
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(
+                      Icons.arrow_back_ios,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                    Text("Previous"),
+                  ],
+                ),
               ),
-              onPressed: () {},
             ),
-            IconButton.filled(
-              icon: Icon(
-                Icons.arrow_right,
-                size: 36,
-                color: Theme.of(context).colorScheme.onPrimary,
+            Expanded(
+              child: ElevatedButton(
+                iconAlignment: IconAlignment.end,
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Next"),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ],
+                ),
               ),
-              onPressed: () {},
             ),
           ],
         ),
