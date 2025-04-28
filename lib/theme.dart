@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color scaffoldBackground = Color(0xFFF6F9F9); // BlueWhite
+  // static const Color scaffoldBackground = Color(0xFFF1F5F5); // BlueWhite
+  static const Color scaffoldBackground = Color(0xFFFFFFFF); // white
   static const Color cardBackground = Color(0xFFFFFFFF); // White
   static const Color textPrimary = Color(0xFF000000); // Black
   static const Color textSecondary = Color(0xFF666666); // Grey
@@ -12,20 +13,36 @@ class AppTheme {
   static const Color white = Color(0xFFFFFFFF); // White for button text/icons
 
   static const Color purpleAccent = Color(0xFF7986CB); // Purple
-  // static const Color lightPurpleAccent = Color(0xFFAEB8E0); // Light purple
-  // static const Color darkPurpleAccent = Color(0xFF495A8A); // Dark purple
+  static const Color lightPurpleAccent = Color(0xFFAEB8E0); // Light purple
+  static const Color darkPurpleAccent = Color(0xFF495A8A); // Dark purple
 
   static const Color pastilGreenAccent = Color(0xFF4CAF8C); // Green
-  // static const Color lightGreenAccent = Color(0xFF80E8B2); // Light green
-  // static const Color darkGreenAccent = Color(0xFF357A5E); // Dark green
+  static const Color lightPastilGreenAccent = Color(0xFF80E8B2); // Light green
+  static const Color darkPastilGreenAccent = Color(0xFF357A5E); // Dark green
 
   static const Color pinkAccent = Color(0xFFFF8A80); // Salmon/pink
-  // static const Color lightPinkAccent = Color(0xFFFFB3A8); // Light salmon/pink
-  // static const Color darkPinkAccent = Color(0xFFC75B53); // Dark salmon/pink
+  static const Color lightPinkAccent = Color(0xFFFFB3A8); // Light salmon/pink
+  static const Color darkPinkAccent = Color(0xFFC75B53); // Dark salmon/pink
 
   static const Color yellowAccent = Color(0xFFFFCF40); // Yellow
-  // static const Color lightYellowAccent = Color(0xFFFFE680); // Light yellow
-  // static const Color darkYellowAccent = Color(0xFFC7A200); // Dark yellow
+  static const Color lightYellowAccent = Color(0xFFFFE680); // Light yellow
+  static const Color darkYellowAccent = Color(0xFFC7A200); // Dark yellow
+
+  static const Color pastilBlueAccent = Color(0xFF81D4FA); // Light blue
+  static const Color lightPastilBlueAccent = Color(0xFFB3E5FC); // Lighter blue
+  static const Color darkPastilBlueAccent = Color(0xFF4BA3C7); // Darker blue
+
+  static const Color pastilOrangeAccent = Color(0xFFFFAB91); // Light orange
+  static const Color lightPastilOrangeAccent =
+      Color(0xFFFFCCBC); // Lighter orange
+  static const Color darkPastilOrangeAccent =
+      Color(0xFFC77C68); // Darker orange
+
+  static const Color pastilPurpleAccent = Color(0xFFCE93D8); // Light purple
+  static const Color lightPastilPurpleAccent =
+      Color(0xFFE1BEE7); // Lighter purple
+  static const Color darkPastilPurpleAccent =
+      Color(0xFF9C64A6); // Darker purple
 
   // Text Theme
   static TextTheme textTheme = TextTheme(
@@ -117,9 +134,14 @@ class AppTheme {
     ),
     cardTheme: CardTheme(
       color: cardBackground,
-      elevation: 2,
-      shadowColor: Colors.grey.shade100,
+
+      elevation: 0,
+      // shadowColor: Colors.grey.shade100,
       shape: RoundedRectangleBorder(
+        side: BorderSide(
+          // color: Colors.grey,
+          width: 0.5,
+        ),
         borderRadius: BorderRadius.circular(20),
       ),
     ),
@@ -150,6 +172,23 @@ class AppTheme {
         fontSize: 16,
         // fontWeight: FontWeight.bold,
       ),
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: scaffoldBackground,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(0),
+        ),
+      ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+          foregroundColor: blueAccent,
+          // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+          ),
+          overlayColor: blueAccent),
     ),
   );
 
