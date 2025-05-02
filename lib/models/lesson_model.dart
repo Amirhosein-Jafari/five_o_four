@@ -1,4 +1,4 @@
-import 'package:five_o_four/models/word_model.dart';
+import 'package:five_o_four/models/word.dart';
 
 class Lesson {
   final int id;

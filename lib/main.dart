@@ -1,7 +1,5 @@
-import 'package:five_o_four/screens/home_screen.dart';
-import 'package:five_o_four/screens/onboard/welcome_screen.dart';
+import 'package:five_o_four/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'theme.dart';
 
 void main() {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme().darkTheme,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: Dashboard(),
     );
   }
 }

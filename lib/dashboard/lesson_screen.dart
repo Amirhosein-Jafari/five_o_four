@@ -1,16 +1,15 @@
-import 'package:five_o_four/constants/constants.dart';
-import 'package:five_o_four/models/lesson_model.dart';
-import 'package:five_o_four/screens/word_screen.dart';
+import 'package:five_o_four/dashboard/word_screen.dart';
+import 'package:five_o_four/models/word.dart';
 import 'package:flutter/material.dart';
 
 class LessonScreen extends StatelessWidget {
-  final Lesson lesson;
-  final Function(int, bool) onProgressUpdate;
+  final int lesson;
+  final List<Word> words;
 
   const LessonScreen({
     super.key,
     required this.lesson,
-    required this.onProgressUpdate,
+    required this.words,
   });
 
   @override
@@ -18,16 +17,16 @@ class LessonScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          lesson.title,
+          "Lesson ${lesson + 1}",
           style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
       body: Padding(
-        padding: pagePadding(context),
+        padding: const EdgeInsets.all(16),
         child: ListView.builder(
-            itemCount: lesson.words.length,
+            itemCount: words.length,
             itemBuilder: (context, index) {
-              final word = lesson.words[index];
+              final word = words[index];
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: GestureDetector(
@@ -36,9 +35,6 @@ class LessonScreen extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => WordDetailsScreen(
                           word: word,
-                          onProgressUpdate: (isLearnt) {
-                            onProgressUpdate(index, isLearnt);
-                          },
                         ),
                       ),
                     );
@@ -53,10 +49,10 @@ class LessonScreen extends StatelessWidget {
                         word.word,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      subtitle: Text(
-                        word.phonetic,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
+                      // subtitle: Text(
+                      //   word.phonetic,
+                      //   style: Theme.of(context).textTheme.bodyMedium,
+                      // ),
                       trailing: IconButton(
                         icon: Icon(Icons.bookmark_add_outlined),
                         onPressed: () {},

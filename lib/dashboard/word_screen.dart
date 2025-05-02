@@ -1,17 +1,13 @@
-import 'package:five_o_four/constants/constants.dart';
-import 'package:five_o_four/models/word_model.dart';
+import 'package:five_o_four/models/word.dart';
 import 'package:five_o_four/theme.dart';
 import 'package:flutter/material.dart';
 
 class WordDetailsScreen extends StatefulWidget {
   final Word word;
 
-  final Function(bool) onProgressUpdate;
-
   const WordDetailsScreen({
     super.key,
     required this.word,
-    required this.onProgressUpdate,
   });
 
   @override
@@ -105,7 +101,7 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
         },
         body: SingleChildScrollView(
           child: Padding(
-            padding: pagePadding(context),
+            padding: const EdgeInsets.all(16),
             child: Column(
               spacing: 16,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -373,13 +369,13 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                                       height: 24,
                                     ),
                                     Text(
-                                      widget.word.story,
+                                      widget.word.story ?? "",
                                       style:
                                           Theme.of(context).textTheme.bodyLarge,
                                     ),
                                     const SizedBox(height: 12),
                                     Text(
-                                      widget.word.storyTranslation,
+                                      widget.word.storyTranslation ?? "",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium,
