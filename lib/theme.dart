@@ -218,7 +218,6 @@ class AppTheme {
       labelMedium: textTheme.labelMedium?.copyWith(color: blueAccent),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: true,
@@ -232,7 +231,7 @@ class AppTheme {
     cardTheme: CardTheme(
       color: const Color(0xFF1E1E1E),
       elevation: 2,
-      shadowColor: Colors.white.withOpacity(0.1),
+      shadowColor: Colors.white.withValues(alpha: 0.1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),

@@ -49,10 +49,10 @@ class LessonScreen extends StatelessWidget {
                         word.word,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      // subtitle: Text(
-                      //   word.phonetic,
-                      //   style: Theme.of(context).textTheme.bodyMedium,
-                      // ),
+                      subtitle: Text(
+                        word.translation,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
                       trailing: IconButton(
                         icon: Icon(Icons.bookmark_add_outlined),
                         onPressed: () {},

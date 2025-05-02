@@ -133,8 +133,9 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 24,
+                        Divider(
+                          color: AppTheme.purpleAccent,
+                          height: 48,
                         ),
                         Text(
                           widget.word.definition,
@@ -152,243 +153,215 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                 ),
 
                 // Story Voice Player (This is shit dont give a fuck about it yet)
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.purpleAccent, Colors.blue],
+                    ),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  color: Colors.brown.withValues(alpha: 0.2),
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      spacing: 16,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'کدینگ فارسی',
-                          style:
-                              Theme.of(context).textTheme.titleLarge?.copyWith(
-                                    color: Colors.brown,
-                                  ),
-                        ),
-                        IconButton(
-                          iconSize: 48,
-                          onPressed: () {
-                            // Add play functionality here
-                          },
-                          icon: Icon(
-                            Icons.play_circle_fill,
-                            color: Colors.brown,
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            LinearProgressIndicator(
-                              value: 0.5, // Example progress value
-                              backgroundColor:
-                                  Colors.brown.withValues(alpha: 0.3),
-                              valueColor: AlwaysStoppedAnimation(
-                                Colors.brown,
+                  padding: EdgeInsets.all(3), // Border width
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color:
+                          Theme.of(context).cardColor, // Card background color
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        spacing: 16,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                iconSize: 52,
+                                onPressed: () {
+                                  // Add play functionality here
+                                },
+                                icon: Icon(
+                                  Icons.play_circle_fill,
+                                  color: Colors.blue,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              '00:30 / 01:00',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall
-                                  ?.copyWith(
-                                    color: AppTheme.purpleAccent,
+                              Text(
+                                'کدینگ فارسی',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayMedium
+                                    ?.copyWith(
+                                      color: Colors.purpleAccent,
+                                    ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                child: LinearProgressIndicator(
+                                  value: 0.5, // Example progress value
+                                  backgroundColor:
+                                      Colors.blue.withValues(alpha: 0.3),
+                                  valueColor: AlwaysStoppedAnimation(
+                                    Colors.blue,
                                   ),
-                            ),
-                          ],
-                        ),
-                      ],
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                '00:30 / 01:00',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall
+                                    ?.copyWith(
+                                      color: AppTheme.purpleAccent,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
 
-                // Tabs (Examples, Story)
-                DefaultTabController(
-                  length: 2,
-                  child: Column(
-                    children: [
-                      TabBar(
-                        tabs: const [
-                          Tab(text: 'Examples'),
-                          Tab(text: 'Story'),
+                // Examples Card
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  color: AppTheme.pastilGreenAccent.withValues(alpha: 0.2),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            spacing: 8,
+                            children: [
+                              Icon(Icons.format_quote,
+                                  color: AppTheme.pastilGreenAccent),
+                              Text(
+                                'Examples',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(
+                                      color: AppTheme.pastilGreenAccent,
+                                    ),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            color: AppTheme.pastilGreenAccent,
+                            height: 48,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  widget.word.example1,
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                const SizedBox(height: 12),
+                                Text(
+                                  widget.word.exampleTranslation1,
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  textDirection: TextDirection.rtl,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 42,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                widget.word.example2,
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                widget.word.exampleTranslation2,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                textDirection: TextDirection.rtl,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 42,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                widget.word.example3,
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                widget.word.exampleTranslation3,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                textDirection: TextDirection.rtl,
+                              ),
+                            ],
+                          ),
                         ],
                       ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        height: 650,
-                        child: TabBarView(
+                    ),
+                  ),
+                ),
+
+                // Story Card
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  color: AppTheme.darkPinkAccent.withValues(alpha: 0.2),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          spacing: 8,
                           children: [
-                            // Example Tab
-                            Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              color: AppTheme.pastilGreenAccent
-                                  .withValues(alpha: 0.2),
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        spacing: 8,
-                                        children: [
-                                          Icon(Icons.format_quote,
-                                              color:
-                                                  AppTheme.pastilGreenAccent),
-                                          Text(
-                                            'Examples',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleLarge
-                                                ?.copyWith(
-                                                  color: AppTheme
-                                                      .pastilGreenAccent,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 24),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 12),
-                                        child: Column(
-                                          // crossAxisAlignment:
-                                          //     CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              widget.word
-                                                  .example1, // "a. When Roy abandoned his family, the police went looking for him."
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyLarge,
-                                            ),
-                                            const SizedBox(height: 12),
-                                            Text(
-                                              widget.word
-                                                  .exampleTranslation1, // "وقتی ” روی ” خانواده اش را ترک کرد پلیس به جستجویش پرداخت."
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium,
-                                              textDirection: TextDirection.rtl,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 42,
-                                      ),
-                                      Column(
-                                        // crossAxisAlignment:
-                                        //     CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            widget.word
-                                                .example2, // "b. The soldier could not abandon his friends who were hurt in battle."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                          const SizedBox(height: 12),
-                                          Text(
-                                            widget.word
-                                                .exampleTranslation2, // "سرباز نتوانست دوستانش را که در جنگ آسیب دیده بودند ترک کند."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                            textDirection: TextDirection.rtl,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 42,
-                                      ),
-                                      Column(
-                                        // crossAxisAlignment:
-                                        //     CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            widget.word
-                                                .example3, // "c. Because Rose was poor, she had to abandon her idea of going to college."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                          const SizedBox(height: 12),
-                                          Text(
-                                            widget.word
-                                                .exampleTranslation3, // "چون ” رز ” فقیر بود از فکر رفتن به دانشگاه دست کشید."
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium,
-                                            textDirection: TextDirection.rtl,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                            Icon(Icons.menu_book, color: AppTheme.pinkAccent),
+                            Text(
+                              'Story',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(
+                                    color: AppTheme.pinkAccent,
                                   ),
-                                ),
-                              ),
-                            ),
-                            // Examples Tab
-                            Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              color: AppTheme.darkPinkAccent
-                                  .withValues(alpha: 0.2),
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      spacing: 8,
-                                      children: [
-                                        Icon(Icons.menu_book,
-                                            color: AppTheme.pinkAccent),
-                                        Text(
-                                          'Story',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleLarge
-                                              ?.copyWith(
-                                                color: AppTheme.pinkAccent,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 24,
-                                    ),
-                                    Text(
-                                      widget.word.story ?? "",
-                                      style:
-                                          Theme.of(context).textTheme.bodyLarge,
-                                    ),
-                                    const SizedBox(height: 12),
-                                    Text(
-                                      widget.word.storyTranslation ?? "",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
-                                      textDirection: TextDirection.rtl,
-                                    ),
-                                  ],
-                                ),
-                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        Divider(
+                          color: AppTheme.pinkAccent,
+                          height: 48,
+                        ),
+                        Text(
+                          widget.word.story ?? "",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          widget.word.storyTranslation ?? "",
+                          style: Theme.of(context).textTheme.bodyMedium,
+                          textDirection: TextDirection.rtl,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
