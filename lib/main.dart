@@ -1,4 +1,5 @@
 import 'package:five_o_four/dashboard/dashboard.dart';
+import 'package:five_o_four/dashboard/onboard/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'theme.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme().darkTheme,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home: SignUpScreen(),
     );
   }
 }

@@ -156,15 +156,17 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Colors.purpleAccent, Colors.blue],
+                      colors: [
+                        Colors.purpleAccent.withValues(alpha: 0.3),
+                        Colors.blue.withValues(alpha: 0.3)
+                      ],
                     ),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   padding: EdgeInsets.all(3), // Border width
                   child: Container(
                     decoration: BoxDecoration(
-                      color:
-                          Theme.of(context).cardColor, // Card background color
+                      // color: Colors.white,
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: Padding(

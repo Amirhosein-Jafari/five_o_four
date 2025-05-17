@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   // static const Color scaffoldBackground = Color(0xFFF1F5F5); // BlueWhite
-  static const Color scaffoldBackground = Color(0xFFFFFFFF); // white
+  static const Color scaffoldBackgroundLight = Color(0xFFFFFFFF); // white
+  static const Color scaffoldBackgroundDark = Color(0xFF121212); // Black
   static const Color cardBackground = Color(0xFFFFFFFF); // White
   static const Color textPrimary = Color(0xFF000000); // Black
   static const Color textSecondary = Color(0xFF666666); // Grey
@@ -108,24 +109,24 @@ class AppTheme {
     useMaterial3: true,
     // fontFamily: 'Nunito',
     fontFamilyFallback: ['Nunito', 'Vazirmatn'],
-    scaffoldBackgroundColor: scaffoldBackground,
+    scaffoldBackgroundColor: scaffoldBackgroundLight,
     primaryColor: blueAccent,
     colorScheme: const ColorScheme.light(
       primary: blueAccent,
       secondary: orangeAccent,
       tertiary: redAccent,
-      surface: cardBackground,
+      surface: Color(0xFFEDEEF1),
       onPrimary: white,
       onSecondary: white,
       onSurface: textPrimary,
     ),
     textTheme: textTheme,
     appBarTheme: const AppBarTheme(
-      backgroundColor: scaffoldBackground,
+      backgroundColor: blueAccent,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(color: textPrimary),
+      iconTheme: IconThemeData(color: white),
       titleTextStyle: TextStyle(
         color: blueAccent,
         fontWeight: FontWeight.bold,
@@ -133,10 +134,7 @@ class AppTheme {
       ),
     ),
     cardTheme: CardTheme(
-      color: cardBackground,
-
       elevation: 0,
-      // shadowColor: Colors.grey.shade100,
       shape: RoundedRectangleBorder(
         side: BorderSide(
           // color: Colors.grey,
@@ -145,6 +143,8 @@ class AppTheme {
         borderRadius: BorderRadius.circular(20),
       ),
     ),
+    // shadowColor: const Color.from(alpha: 1, red: 0.62, green: 0.62, blue: 0.62)
+    //     .withValues(alpha: 0.2),
     iconTheme: const IconThemeData(
       color: textSecondary,
       size: 24,
@@ -159,22 +159,8 @@ class AppTheme {
         ),
       ),
     ),
-    tabBarTheme: const TabBarTheme(
-      overlayColor: WidgetStatePropertyAll(Colors.transparent),
-      dividerColor: Colors.transparent,
-      labelColor: blueAccent,
-      labelStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
-      unselectedLabelColor: textSecondary,
-      unselectedLabelStyle: TextStyle(
-        fontSize: 16,
-        // fontWeight: FontWeight.bold,
-      ),
-    ),
     bottomSheetTheme: const BottomSheetThemeData(
-      backgroundColor: scaffoldBackground,
+      // backgroundColor: scaffoldBackground,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(0),
@@ -190,13 +176,22 @@ class AppTheme {
           ),
           overlayColor: blueAccent),
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: scaffoldBackgroundLight,
+    ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: blueAccent,
+      linearTrackColor: blueAccent.withAlpha(50),
+      borderRadius: BorderRadius.circular(2),
+      linearMinHeight: 6,
+    ),
   );
 
   final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Nunito',
     fontFamilyFallback: ['Nunito', 'Vazir'],
-    scaffoldBackgroundColor: const Color(0xFF121212),
+    scaffoldBackgroundColor: scaffoldBackgroundDark,
     primaryColor: blueAccent,
     colorScheme: const ColorScheme.dark(
       primary: blueAccent,
@@ -218,6 +213,7 @@ class AppTheme {
       labelMedium: textTheme.labelMedium?.copyWith(color: blueAccent),
     ),
     appBarTheme: const AppBarTheme(
+      backgroundColor: blueAccent,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: true,
@@ -229,10 +225,11 @@ class AppTheme {
       ),
     ),
     cardTheme: CardTheme(
-      color: const Color(0xFF1E1E1E),
-      elevation: 2,
-      shadowColor: Colors.white.withValues(alpha: 0.1),
       shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: Colors.grey.shade800,
+          width: 0.5,
+        ),
         borderRadius: BorderRadius.circular(20),
       ),
     ),
@@ -240,6 +237,7 @@ class AppTheme {
       color: Colors.grey,
       size: 24,
     ),
+    // shadowColor: Color(0xFF1E1E1E),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: white,
@@ -257,6 +255,15 @@ class AppTheme {
         fontSize: 16,
         fontWeight: FontWeight.bold,
       ),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: scaffoldBackgroundDark,
+    ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: blueAccent,
+      linearTrackColor: blueAccent.withAlpha(50),
+      borderRadius: BorderRadius.circular(2),
+      linearMinHeight: 6,
     ),
   );
 }

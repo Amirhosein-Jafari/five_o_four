@@ -9,11 +9,24 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Search screen placeholder')),
+              );
+            },
+          ),
+        ],
+      ),
       body: BlocProvider(
         create: (context) => WordDataCubit(),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(
+              horizontal:
+                  16), // This is only horizontal and the top padding is on the widget
           child: _body(context),
         ),
       ),
@@ -26,38 +39,46 @@ class Dashboard extends StatelessWidget {
   }
 
   Widget _bottom(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Colors.white,
-      elevation: 8,
-      selectedItemColor: Theme.of(context).primaryColor,
-      unselectedItemColor: Theme.of(context).colorScheme.onSurface,
-      currentIndex: 0, // Home is selected
-      onTap: (index) {
-        // Handle navigation
-        if (index == 1) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Search screen placeholder')),
-          );
-        } else if (index == 2) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Bookmarks screen placeholder')),
-          );
-        }
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.1),
+          offset: const Offset(0, -1),
+          blurRadius: 2,
+          spreadRadius: 0,
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Search',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.bookmark),
-          label: 'Bookmarks',
-        ),
-      ],
+      ]),
+      child: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Theme.of(context).colorScheme.onSurface,
+        currentIndex: 0, // Home is selected
+        onTap: (index) {
+          // Handle navigation
+          if (index == 1) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Bookmarks screen placeholder')),
+            );
+          } else if (index == 2) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Settings screen placeholder')),
+            );
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark_border),
+            label: 'Bookmarks',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
     );
   }
 }
