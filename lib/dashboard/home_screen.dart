@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:animations/animations.dart';
 import 'package:five_o_four/cubits/word_data_cubit/word_data_cubit.dart';
 import 'package:five_o_four/dashboard/lesson_screen.dart';
+import 'package:five_o_four/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +27,10 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Card(
+                  // elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
@@ -110,82 +117,79 @@ class HomeScreen extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: OpenContainer(
-                        closedShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
+                        tappable: true,
                         closedElevation: 0,
                         openBuilder: (context, _) => LessonScreen(
                           lesson: lesson,
                           words: state.words[index],
                         ),
-                        closedBuilder: (context, openContainer) =>
-                            GestureDetector(
-                          onTap: openContainer,
-                          child: Container(
-                            // color: Theme.of(context).colorScheme.surface,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Theme.of(context).colorScheme.surface,
-                                  Theme.of(context).colorScheme.primary,
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // Icon
-                                  Container(
-                                    padding: const EdgeInsets.all(12),
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context)
-                                          .primaryColor
-                                          .withValues(alpha: 0.1),
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Icon(
-                                      Icons.book,
-                                      color: Theme.of(context).primaryColor,
-                                      size: 24,
-                                    ),
+                        closedColor: Theme.of(context).scaffoldBackgroundColor,
+                        closedBuilder: (context, openContainer) => Card(
+                          margin: const EdgeInsets.only(top: 0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          // elevation: 4,
+                          // decoration: BoxDecoration(
+                          //   gradient: LinearGradient(
+                          //     colors: [
+                          //       Theme.of(context).colorScheme.secondary,
+                          //       AppTheme.pastilBlueAccent,
+                          //     ],
+                          //     begin: Alignment.topCenter,
+                          //     end: Alignment.bottomCenter,
+                          //   ),
+                          // ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Icon
+                                Container(
+                                  padding: const EdgeInsets.all(12),
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .primaryColor
+                                        .withValues(alpha: 0.1),
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
-                                  const SizedBox(height: 12),
-                                  // Title
-                                  Text(
-                                    "Lesson ${lesson + 1}",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
+                                  child: Icon(
+                                    Icons.book,
+                                    color: Theme.of(context).primaryColor,
+                                    size: 24,
                                   ),
-                                  const SizedBox(height: 4),
-                                  // Subtitle
-                                  Text(
-                                    '12 words to learn',
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  // Progress
-                                  Text(
-                                    '0/12',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          color: Theme.of(context).primaryColor,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                                const SizedBox(height: 12),
+                                // Title
+                                Text(
+                                  "Lesson ${lesson + 1}",
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(height: 4),
+                                // Subtitle
+                                Text(
+                                  '12 words to learn',
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(height: 8),
+                                // Progress
+                                Text(
+                                  '0/12',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context).primaryColor,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
