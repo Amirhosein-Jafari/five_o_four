@@ -1,9 +1,6 @@
-import 'dart:ui';
-
 import 'package:animations/animations.dart';
 import 'package:five_o_four/cubits/word_data_cubit/word_data_cubit.dart';
 import 'package:five_o_four/dashboard/lesson_screen.dart';
-import 'package:five_o_four/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -145,7 +142,6 @@ class HomeScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Icon
                                 Container(
                                   padding: const EdgeInsets.all(12),
                                   decoration: BoxDecoration(
@@ -161,7 +157,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 12),
-                                // Title
+
                                 Text(
                                   "Lesson ${lesson + 1}",
                                   style:
@@ -170,7 +166,7 @@ class HomeScreen extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 4),
-                                // Subtitle
+
                                 Text(
                                   '12 words to learn',
                                   style: Theme.of(context).textTheme.bodySmall,

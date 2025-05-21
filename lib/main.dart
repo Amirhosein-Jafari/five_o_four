@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
       title: '504 Essential Words',
       theme: AppTheme().lightTheme,
       darkTheme: AppTheme().darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      home: Dashboard(),
     );
   }
 }

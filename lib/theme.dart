@@ -137,14 +137,12 @@ class AppTheme {
       elevation: 0,
       shape: RoundedRectangleBorder(
         side: BorderSide(
-          // color: Colors.grey,
           width: 0.5,
         ),
         borderRadius: BorderRadius.circular(20),
       ),
     ),
-    // shadowColor: const Color.from(alpha: 1, red: 0.62, green: 0.62, blue: 0.62)
-    //     .withValues(alpha: 0.2),
+
     iconTheme: const IconThemeData(
       color: textSecondary,
       size: 24,
@@ -160,7 +158,6 @@ class AppTheme {
       ),
     ),
     bottomSheetTheme: const BottomSheetThemeData(
-      // backgroundColor: scaffoldBackground,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(0),
@@ -247,14 +244,13 @@ class AppTheme {
         ),
       ),
     ),
-    tabBarTheme: const TabBarTheme(
-      overlayColor: WidgetStatePropertyAll(Colors.transparent),
-      dividerColor: Colors.transparent,
-      labelColor: blueAccent,
-      labelStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-      ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+          foregroundColor: blueAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+          ),
+          overlayColor: blueAccent),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: scaffoldBackgroundDark,
@@ -264,6 +260,13 @@ class AppTheme {
       linearTrackColor: blueAccent.withAlpha(50),
       borderRadius: BorderRadius.circular(2),
       linearMinHeight: 6,
+    ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(0),
+        ),
+      ),
     ),
   );
 }
