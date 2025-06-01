@@ -1,9 +1,12 @@
 import 'package:five_o_four/dashboard/dashboard.dart';
-import 'package:five_o_four/dashboard/onboard/signup_screen.dart';
+import 'package:five_o_four/services/hive_service.dart';
 import 'package:flutter/material.dart';
 import 'theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await HiveService.init();
   runApp(MyApp());
 }
 
@@ -22,4 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-  // scaffoldBackgroundColor: const Color(0xFFF6F9F9),

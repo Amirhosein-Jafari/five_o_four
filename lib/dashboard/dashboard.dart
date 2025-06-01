@@ -1,3 +1,4 @@
+import 'package:five_o_four/cubits/progress/progress_cubit.dart';
 import 'package:five_o_four/cubits/word_data_cubit/word_data_cubit.dart';
 import 'package:five_o_four/dashboard/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,15 @@ class Dashboard extends StatelessWidget {
           ),
         ],
       ),
-      body: BlocProvider(
-        create: (context) => WordDataCubit(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => WordDataCubit(),
+          ),
+          BlocProvider(
+            create: (context) => ProgressCubit(),
+          ),
+        ],
         child: Padding(
           padding: const EdgeInsets.symmetric(
               horizontal:

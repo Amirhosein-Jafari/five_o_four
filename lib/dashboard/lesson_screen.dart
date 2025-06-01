@@ -1,6 +1,8 @@
+import 'package:five_o_four/cubits/progress/progress_cubit.dart';
 import 'package:five_o_four/dashboard/word_screen.dart';
 import 'package:five_o_four/models/word.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LessonScreen extends StatelessWidget {
   final int lesson;
@@ -33,31 +35,46 @@ class LessonScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => WordDetailsScreen(
-                        word: word,
+                      builder: (ctx) => BlocProvider.value(
+                        value: BlocProvider.of<ProgressCubit>(context),
+                        child: WordDetailsScreen(
+                          wordIndex: index,
+                          lessonIndex: lesson,
+                          word: word,
+                        ),
                       ),
                     ),
                   );
                 },
-                child: Card(
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8.0,
-                    ),
-                    title: Text(
-                      word.word,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    subtitle: Text(
-                      word.translation,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.bookmark_add_outlined),
-                      onPressed: () {},
-                    ),
-                  ),
+                child: BlocBuilder<ProgressCubit, ProgressState>(
+                  builder: (context, state) {
+                    return Card(
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 8.0,
+                        ),
+                        title: Text(
+                          word.word,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        subtitle: Text(
+                          word.translation,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        trailing: IconButton(
+                          icon: state.bookMarks[lesson][index]
+                              ? const Icon(Icons.bookmark_add)
+                              : const Icon(Icons.bookmark_add_outlined),
+                          onPressed: () {
+                            context
+                                .read<ProgressCubit>()
+                                .bookMark(lesson, index);
+                          },
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             );

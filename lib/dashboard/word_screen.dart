@@ -1,13 +1,19 @@
+import 'package:five_o_four/cubits/progress/progress_cubit.dart';
 import 'package:five_o_four/models/word.dart';
 import 'package:five_o_four/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WordDetailsScreen extends StatefulWidget {
   final Word word;
+  final int lessonIndex;
+  final int wordIndex;
 
   const WordDetailsScreen({
     super.key,
     required this.word,
+    required this.lessonIndex,
+    required this.wordIndex,
   });
 
   @override
@@ -25,7 +31,22 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
               expandedHeight: 220.0,
               pinned: true,
               actions: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.bookmark_outline))
+                BlocBuilder<ProgressCubit, ProgressState>(
+                  builder: (context, state) {
+                    return IconButton(
+                      onPressed: () {
+                        context
+                            .read<ProgressCubit>()
+                            .bookMark(widget.lessonIndex, widget.wordIndex);
+                      },
+                      icon: Icon(
+                        state.bookMarks[widget.lessonIndex][widget.wordIndex]
+                            ? Icons.bookmark
+                            : Icons.bookmark_outline,
+                      ),
+                    );
+                  },
+                ),
               ],
               flexibleSpace: FlexibleSpaceBar(
                 collapseMode: CollapseMode.pin,

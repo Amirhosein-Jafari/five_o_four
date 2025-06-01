@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:five_o_four/cubits/progress/progress_cubit.dart';
 import 'package:five_o_four/cubits/word_data_cubit/word_data_cubit.dart';
 import 'package:five_o_four/dashboard/lesson_screen.dart';
 import 'package:flutter/material.dart';
@@ -116,9 +117,12 @@ class HomeScreen extends StatelessWidget {
                       child: OpenContainer(
                         tappable: true,
                         closedElevation: 0,
-                        openBuilder: (context, _) => LessonScreen(
-                          lesson: lesson,
-                          words: state.words[index],
+                        openBuilder: (ctx, _) => BlocProvider.value(
+                          value: context.read<ProgressCubit>(),
+                          child: LessonScreen(
+                            lesson: lesson,
+                            words: state.words[index],
+                          ),
                         ),
                         closedColor: Theme.of(context).scaffoldBackgroundColor,
                         closedBuilder: (context, openContainer) => Card(
