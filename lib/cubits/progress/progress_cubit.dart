@@ -23,11 +23,38 @@ class ProgressCubit extends Cubit<ProgressState> {
     return ProgressState.fromJson(jsonMap);
   }
 
+  // void bookMark(int lessonIndex, int wordIndex) {
+  //   var newState = ProgressState(bookMarks: state.bookMarks);
+  //   newState.bookMarks[lessonIndex][wordIndex] =
+  //       !newState.bookMarks[lessonIndex][wordIndex];
+  //   HiveService.write("progress", jsonEncode(newState.toJson()));
+  //   emit(newState);
+  // }
+
   void bookMark(int lessonIndex, int wordIndex) {
-    var newState = ProgressState(bookMarks: state.bookMarks);
-    newState.bookMarks[lessonIndex][wordIndex] =
-        !newState.bookMarks[lessonIndex][wordIndex];
-    HiveService.write("progress", jsonEncode(newState.toJson()));
+    final newBookMarks =
+        state.bookMarks.map((row) => List<bool>.from(row)).toList();
+    newBookMarks[lessonIndex][wordIndex] =
+        !newBookMarks[lessonIndex][wordIndex];
+    final newState =
+        ProgressState(bookMarks: newBookMarks, learned: state.learned);
     emit(newState);
+    HiveService.write("progress", jsonEncode(newState.toJson()));
+  }
+
+  void markLearned(int lessonIndex, int wordIndex) {
+    // Deep copy the learned grid
+    final newLearned =
+        state.learned.map((row) => List<bool>.from(row)).toList();
+    // Mark the word as learned
+    newLearned[lessonIndex][wordIndex] = true;
+    // Create new state
+    final newState = ProgressState(
+      bookMarks: state.bookMarks,
+      learned: newLearned,
+    );
+    emit(newState);
+    // Save to Hive
+    HiveService.write("progress", jsonEncode(newState.toJson()));
   }
 }

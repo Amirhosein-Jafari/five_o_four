@@ -21,6 +21,9 @@ class WordDetailsScreen extends StatefulWidget {
 }
 
 class _WordDetailsScreenState extends State<WordDetailsScreen> {
+  int currentLessonIndex = 0;
+  int currentWordIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -440,7 +443,11 @@ class _WordDetailsScreenState extends State<WordDetailsScreen> {
             ),
             Expanded(
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  context
+                      .read<ProgressCubit>()
+                      .markLearned(widget.lessonIndex, widget.wordIndex);
+                },
                 child: Container(
                   constraints: BoxConstraints.expand(),
                   child: Row(

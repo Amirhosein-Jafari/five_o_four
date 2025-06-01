@@ -49,6 +49,9 @@ class LessonScreen extends StatelessWidget {
                 child: BlocBuilder<ProgressCubit, ProgressState>(
                   builder: (context, state) {
                     return Card(
+                      color: state.learned[lesson][index]
+                          ? Colors.blue
+                          : Theme.of(context).colorScheme.surface,
                       child: ListTile(
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 16.0,
